@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var xml = new XMLHttpRequest();
+        xml.open('POST', 'http://api.tushare.pro');
+        xml.send(JSON.stringify({
+            "api_name": "daily",
+            "token": "7f22c6a9be81e94ac0e7566090ddee681b7cf325154d032a0865dfe2",
+            "params": { "ts_code": "000001.SZ", "start_date": "20220901", "end_date": "20221130" },
+            "fields": ["open"]
+        }))
+        xml.onreadystatechange = function () {
+            console.log(xml.responseText);
+        }
+    </script>
+</body>
+
+</html>
